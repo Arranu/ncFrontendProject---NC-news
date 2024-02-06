@@ -13,11 +13,11 @@ const comments = commentList.map((comment,index)=>{
         <section className="comment-list">
             
             <li className="nameDate" key={index}><h4>{comment.author}</h4>
-            <p className="date">{comment.created_at}</p>
+            <p className="date" key={comment.created_at}>{new Date(comment.created_at).toDateString()}</p>
             </li>
-            <p>{comment.body}</p>
-            <p>Likes: {comment.votes}</p>
-            <button>Like</button>
+            <p key={comment.comment_id}>{comment.body}</p>
+            <p key={comment.votes}>Likes: {comment.votes}</p>
+            <button key={comment.author}>Like</button>
         </section>
     )
 })
@@ -30,7 +30,7 @@ const comments = commentList.map((comment,index)=>{
          <button className="comment-button">Submit</button>
         </section>
      </div>
-        <ul key={comments.comment_id}>{comments}</ul>
+        <ul>{comments}</ul>
      </>
     )
 
