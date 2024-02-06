@@ -66,7 +66,7 @@ export default function ArticleList({rows,setRows}){
                       <TableCell align="left" ><Link to={`/articles/${row.id}`}>{row.title}</Link></TableCell>
                       <TableCell align="right">{row.topic}</TableCell>
                       <TableCell align="right">{row.author}</TableCell>
-                      <TableCell align="right">{row.created_at}</TableCell>
+                      <TableCell align="right">{new Date(row.created_at).toDateString()}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
