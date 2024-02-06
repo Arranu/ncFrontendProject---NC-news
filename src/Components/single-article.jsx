@@ -10,7 +10,8 @@ const [singleItem, setSingleItem]=useState([])
             setSingleItem(data.article)
         })
     },[article_id])
-
+    
+    
     return (
         <>
         <div>
