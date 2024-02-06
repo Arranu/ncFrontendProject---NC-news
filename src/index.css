@@ -13,6 +13,53 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.comment-container{
+  height: 100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  margin-top: -200px;
+}
+
+.comment-flexbox{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+.comment-text{
+  margin: 12px 0;
+  font-size: 1.15rem;
+  font-weight:600 ;
+}
+.input-box{
+  height: 75px;
+  width: 465px;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+.comment-button{
+  height:40px;
+  width: 80px;
+  justify-content:flex-end;
+  background-color: grey;
+  color: black;
+  margin-top: 10px;
+  border-radius:5px ;
+  border-style: none;
+  cursor: pointer;
+}
+.comment-list{
+  background-color: rgb(248, 248, 248);
+  color:#1a1a1a
+}
+.date{
+  font-size: small;
+}
+
+
+
 a {
   font-weight: 500;
   color: #646cff;
