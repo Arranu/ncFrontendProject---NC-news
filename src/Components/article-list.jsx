@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { fetchArt } from "./api";
+import { Link } from "react-router-dom";
 const columns = [
     { id: 'title', label: 'Title', minWidth: 170 },
     { id: 'topic', label: 'Topic', minWidth: 100 },
@@ -16,9 +17,9 @@ const columns = [
     { id: 'created_at', label: 'Created at', minWidth: 170, align: 'right'},
     { id: 'vote', label: 'Vote', minWidth: 170, align: 'right'}
 ];
-function createData(title, topic, author, created_at) {
+function createData( id, title, topic, author, created_at) {
   
-  return { title, topic, author, created_at };
+  return { id, title, topic, author, created_at };
 }
 export default function ArticleList({rows,setRows}){
 
@@ -30,17 +31,19 @@ export default function ArticleList({rows,setRows}){
                 setRows((rows) => [
               ...rows,
               createData(
+                article.article_id,
                 article.title,
                 article.topic,
                 article.author,
                 article.created_at,
-                
               ),
+              
             ]);
+
             })
         })
     },[])
-
+console.log(rows)
         return (
             
             <TableContainer component={Paper}>
@@ -56,11 +59,11 @@ export default function ArticleList({rows,setRows}){
                 <TableBody>
                   {rows.map((row) => (
                     <TableRow
-                      key={row.title}
+                      key={row.id}
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                      
                     >
-                      <TableCell align="left" component="th" scope="row">{row.title}
-                      </TableCell>
+                      <TableCell align="left" ><Link to={`/articles/${row.id}`}>{row.title}</Link></TableCell>
                       <TableCell align="right">{row.topic}</TableCell>
                       <TableCell align="right">{row.author}</TableCell>
                       <TableCell align="right">{row.created_at}</TableCell>
