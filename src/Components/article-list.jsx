@@ -43,7 +43,7 @@ export default function ArticleList({rows,setRows}){
             })
         })
     },[])
-console.log(rows)
+
         return (
             
             <TableContainer component={Paper}>
