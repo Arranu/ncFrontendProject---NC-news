@@ -17,7 +17,7 @@ export default function CommentList(){
                 <p className="date">{new Date(comment.created_at).toDateString()}</p>
                 </li>
                 <p>{comment.body}</p>
-                <LikeButton votes={comment.votes}/>
+                <LikeButton votes={comment.votes} likeType={`comments`} id={comment.comment_id}/>
             </section>
         )
     })

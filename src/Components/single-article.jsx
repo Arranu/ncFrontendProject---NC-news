@@ -4,6 +4,7 @@ import { fetchSpecArt } from './api';
 import CommentList from './comment-list';
 import LikeButton from './likeButton';
 export default function SingleArticle(){
+    
     const {article_id}=useParams()
     const [singleItem, setSingleItem]=useState([])
     const [like, setLike] =useState("")
@@ -20,7 +21,7 @@ export default function SingleArticle(){
                 <img src={singleItem.article_img_url}></img>
                 <h4>by {singleItem.author}</h4>
                 <p>{singleItem.body}</p>
-                <LikeButton votes={singleItem.votes}/>
+                <LikeButton votes={singleItem.votes} likeType={`articles`} id={singleItem.article_id} />
             </div>
                 <CommentList/>
             </>
