@@ -39,12 +39,9 @@
   background-color: #ffffff;
   color: #1a1a1a;
 }
-.comment-button{
-  height:40px;
-  width: 80px;
-  justify-content:flex-end;
-  background-color: grey;
-  color: black;
+.like-button{
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   margin-top: 10px;
   border-radius:5px ;
   border-style: none;

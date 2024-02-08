@@ -20,9 +20,11 @@ export function fetchArtComs(id){
 export function postCom(id){
     return baseLink.post(`/articles/${id}/comments`)
 }
-export function editVote(id){
-    return baseLink.patch(`/api/articles/${id}`)
+export function editVote(id,location){
+    return baseLink.patch(`/${location}/${id}`, {inc_votes:1}).then(()=>{
+        console.log("Success")
+    })
 }
 export function delCom(id){
-    return baseLink.delete(`/api/comments/${id}`)
+    return baseLink.delete(`/comments/${id}`)
 }
