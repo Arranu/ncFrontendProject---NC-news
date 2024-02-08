@@ -13,7 +13,7 @@ export default function CommentList(){
         return (
             <section key={index} className="comment-list">
                 
-                <li className="name-Date" ><h4>{comment.author}</h4>
+                <li className="name-date" ><h4>{comment.author}</h4>
                 <p className="date">{new Date(comment.created_at).toDateString()}</p>
                 </li>
                 <p>{comment.body}</p>

@@ -7,8 +7,8 @@ import { UserContext } from './context/users.jsx'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <UserContext>
+  <UserContext>
         <App />
-    </UserContext>
-  </BrowserRouter>
+  </UserContext>
+    </BrowserRouter>
   )

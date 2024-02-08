@@ -12,8 +12,8 @@ export default function UserList(){
             <section className="user-list" key={index}>
                 <img className="user-img" src={user.avatar_url}></img>
                 <li id="user-info">
-                <h3>{user.username}</h3>
-                <h4>{user.name}</h4>
+                <h3>User: {user.username}</h3>
+                <h4>Name: {user.name}</h4>
                 </li>
             </section>
         )
