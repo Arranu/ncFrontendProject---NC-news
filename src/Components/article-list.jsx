@@ -46,7 +46,7 @@ export default function ArticleList({rows,setRows}){
 
         return (
             
-            <TableContainer component={Paper}>
+            <TableContainer id="frontPageTable"component={Paper}>
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>

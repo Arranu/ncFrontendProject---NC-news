@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchSpecArt } from './api';
 import CommentList from './comment-list';
-import LikeButton from './likeButton';
+import LikeButton from './like-button';
 export default function SingleArticle(){
     
     const {article_id}=useParams()
