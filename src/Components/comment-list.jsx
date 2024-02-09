@@ -1,18 +1,8 @@
-import { useEffect, useState } from "react";
-import { fetchArtComs } from "./api";
-import { useParams } from "react-router-dom";
 import LikeButton from "./like-button";
-export default function CommentList(){
-    const {article_id} =useParams()
-    const [commentList,setCommentList]=useState([])
-    useEffect(()=>{fetchArtComs(article_id).then(({data})=>{
-        setCommentList(data.comments)
-    })
-    },[article_id])
+export default function CommentList({commentList,setCommentList}){
     const comments = commentList.map((comment,index)=>{
         return (
             <section key={index} className="comment-list">
-                
                 <li className="name-date" ><h4>{comment.author}</h4>
                 <p className="date">{new Date(comment.created_at).toDateString()}</p>
                 </li>
@@ -23,9 +13,8 @@ export default function CommentList(){
     })
         return(
             <>
-            
-            <ul>{comments}</ul>
-        </>
+                <ul>{comments}</ul>
+            </>
         )
 
 

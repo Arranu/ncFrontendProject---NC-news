@@ -19,8 +19,10 @@ export function fetchSpecArt(id){
 export function fetchArtComs(id){
     return baseLink.get(`/articles/${id}/comments`)
 }
-export function postCom(id){
-    return baseLink.post(`/articles/${id}/comments`)
+export function postCom(id,user,post){
+    return baseLink.post(`/articles/${id}/comments`,{
+        userName:user,body:post
+    })
 }
 export function editVote(id,location){
     return baseLink.patch(`/${location}/${id}`, {inc_votes:1})
