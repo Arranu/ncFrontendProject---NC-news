@@ -9,7 +9,7 @@ function App() {
   const [rows, setRows] = useState([])
 
   return (
-   
+ 
     <div>
       <h1>NC News</h1>
       <Navbar/>
@@ -19,7 +19,7 @@ function App() {
         <Route path='/users' element={<UserList/>}/>
       </Routes>
     </div>
-    
+
   )
 }
 

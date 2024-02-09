@@ -22,6 +22,7 @@ body {
 ul {
   list-style: none;
 }
+
 .comment-container{
   height: 100vh;
   display:flex;
@@ -83,15 +84,44 @@ margin: 1cap;
   font-size: small;
 }
 
+.navbar{
+  position: relative;
+  background-color: #C14953;
+  
+  height: 50px;
+}
 
-
+#profile-image{
+  height:auto;
+  width:80px;
+  background-color: #ffffff;
+  border: #C14953;
+  border-radius: 2cap;
+}
+#profile-text{
+  margin-right: 1cap;
+  
+}
+#logged-in{
+  display: flex;
+height: 50px;
+float:right;
+}
+#navbar-links{
+  float: left;
+  margin-top: 1.5cap;
+  
+}
+#user-link{
+  margin: 1cap;
+}
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #6C91C2;
 }
 
 

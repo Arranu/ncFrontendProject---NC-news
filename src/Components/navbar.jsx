@@ -5,17 +5,16 @@ import { fetchSpecUser } from "./api"
 export default function Navbar(){
     const {user}=useContext(UserContext)
     const [currentUser,setCurrentUser]=useState({})
-
     const CurrentUser =()=>{
-        useEffect(()=>{fetchSpecUser(user).then(({data})=>{
+        useEffect(()=>{fetchSpecUser(user.username).then(({data})=>{
             setCurrentUser(data.user)
         })
         },[user])
 
         return(
-            <div>
-                <h5>{currentUser.username}</h5>
-                <img src={currentUser.avatar_url}/>
+            <div id="logged-in">
+                <h5 id='profile-text'>User: {currentUser.username}</h5>
+                <img id='profile-image' src={currentUser.avatar_url}/>
             </div>
         )
     }
@@ -24,7 +23,7 @@ export default function Navbar(){
             <ul className="navbar">
                 <li id="navbar-links">
                     <Link to="/">Home</Link>
-                    <Link to="/users">Users</Link>
+                    <Link id='user-link'to="/users">Users</Link>
                 </li>
                 <CurrentUser/>
             </ul>
