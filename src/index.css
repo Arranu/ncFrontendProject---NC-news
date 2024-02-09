@@ -2,11 +2,11 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -23,98 +23,6 @@ ul {
   list-style: none;
 }
 
-.comment-container{
-  height: 100vh;
-  display:flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items: center;
-  margin-top: -200px;
-}
-
-.comment-flexbox{
-  display:flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-}
-.comment-text{
-  margin: 12px 0;
-  font-size: 1.15rem;
-  font-weight:600 ;
-}
-.input-box{
-  height: 75px;
-  width: 465px;
-  background-color: #E0DDCF;
-  color: #1a1a1a;
-}
-.like-button{
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-  margin-top: 10px;
-  border-radius:5px ;
-  border-style: none;
-  cursor: pointer;
-}
-.user-list,
-.comment-list
-{
-  background-color: #E0DDCF;
-  color:#1a1a1a
-}
-.user-list{
-height: 100px;
-width:50vh;
-justify-content: left;
-
-margin: 1cap;
-}
-.user-img{
-  float: left;
-  width:  100px;
-  height: 100px;
-  background-color: #ffffff;
-}
-#user-info{
-  text-align: right;
-  padding: 0;
-}
-.date{
-  font-size: small;
-}
-
-.navbar{
-  position: relative;
-  background-color: #C14953;
-  
-  height: 50px;
-}
-
-#profile-image{
-  height:auto;
-  width:80px;
-  background-color: #ffffff;
-  border: #C14953;
-  border-radius: 2cap;
-}
-#profile-text{
-  margin-right: 1cap;
-  
-}
-#logged-in{
-  display: flex;
-height: 50px;
-float:right;
-}
-#navbar-links{
-  float: left;
-  margin-top: 1.5cap;
-  
-}
-#user-link{
-  margin: 1cap;
-}
 a {
   font-weight: 500;
   color: #646cff;
@@ -148,6 +56,97 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+.comment-container{
+
+  height: 40vh;
+  display:flex;
+  justify-content:center;
+  align-items: last baseline;
+  margin-top: -200px;
+}
+
+.comment-flexbox{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+.comment-text{
+  margin: 12px 0;
+  font-size: 1.15rem;
+  font-weight:600 ;
+}
+.like-button{
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  border-radius:5px ;
+  border-style: none;
+  cursor: pointer;
+}
+.user-list,
+.comment-list
+{
+  background-color: #E0DDCF;
+  color:#1a1a1a
+}
+.user-list{
+  height: 100px;
+  width:50vh;
+  justify-content: left;
+  
+  margin: 1cap;
+}
+.user-img{
+  float: left;
+  width:  100px;
+  height: 100px;
+  background-color: #ffffff;
+}
+.date{
+  font-size: small;
+}
+
+.navbar{
+  position: relative;
+  background-color: #C14953;
+  height: 50px;
+}
+#input-box{
+  height: 75px;
+  width: 465px;
+  background-color: #E0DDCF;
+  color: #1a1a1a;
+}
+#user-info{
+  text-align: right;
+  padding: 0;
+}
+
+#profile-image{
+  height:auto;
+  width:80px;
+  background-color: #ffffff;
+  border: #C14953;
+  border-radius: 2cap;
+}
+#profile-text{
+  margin-right: 1cap;
+  
+}
+#logged-in{
+  display: flex;
+height: 50px;
+float:right;
+}
+#navbar-links{
+  float: left;
+  margin-top: 1.5cap;
+  
+}
+#user-link{
+  margin: 1cap;
 }
 #frontPageTable{
   background-color:#E0DDCF;

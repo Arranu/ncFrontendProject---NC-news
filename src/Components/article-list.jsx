@@ -36,7 +36,7 @@ export default function ArticleList({rows,setRows}){
                 article.topic,
                 article.author,
                 article.created_at,
-              ),
+              )
               
             ]);
 
