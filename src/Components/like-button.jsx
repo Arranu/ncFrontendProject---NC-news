@@ -7,7 +7,9 @@ export default function LikeButton({votes,likeType,id}){
     return (
         <button
             className={`like-button ${liked ? 'liked' : ''}`} //REMINDER- write 2 seperate CSS states for the like button
-            onClick={() => {
+            onClick={(event) => {
+                console.log(event)
+                event.preventDefault()
                 setLikes(likes + 1);
                 setLiked(true);
                 editVote(id,likeType)

@@ -16,7 +16,7 @@ export default function SingleArticle(){
         useEffect(()=>{fetchArtComs(article_id).then(({data})=>{
         setCommentList(data.comments)
             })
-        },[article_id,commentList])
+        },[article_id,commentList.length])
 
         return (
             <>

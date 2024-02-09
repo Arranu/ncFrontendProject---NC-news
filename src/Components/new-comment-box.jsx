@@ -19,7 +19,7 @@ export default function CommentBox({commentList, setCommentList,article_id}){
                     setCommentList((comments)=>[
                         returnedData, ...comments
                     ])
-                    newbody.innerText = "thanks for your submission"
+                    
                 })}
                 
                 
