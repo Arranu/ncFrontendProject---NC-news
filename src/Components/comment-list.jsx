@@ -4,7 +4,7 @@ export default function CommentList({commentList,setCommentList}){
         return (
             <section key={index} className="comment-list">
                 <li className="name-date" ><h4>{comment.author}</h4>
-                <p className="date">{new Date(comment.created_at).toDateString()}</p>
+                <p className="date">{[new Date(comment.created_at).toLocaleDateString() ," " + new Date(comment.created_at).toLocaleTimeString()]}</p>
                 </li>
                 <p>{comment.body}</p>
                 <LikeButton votes={comment.votes} likeType={`comments`} id={comment.comment_id}/>
