@@ -17,30 +17,12 @@ const columns = [
     { id: 'created_at', label: 'Created at', minWidth: 170, align: 'right'},
     { id: 'vote', label: 'Vote', minWidth: 170, align: 'right'}
 ];
-function createData( id, title, topic, author, created_at) {
-  
-  return { id, title, topic, author, created_at };
-}
+
 export default function ArticleList({rows,setRows}){
 
     useEffect(()=>{
-        setRows([]);
-
-        fetchArt().then((response)=>{
-            response.data.articles.forEach((article)=>{
-                setRows((rows) => [
-              ...rows,
-              createData(
-                article.article_id,
-                article.title,
-                article.topic,
-                article.author,
-                article.created_at,
-              )
-              
-            ]);
-
-            })
+        fetchArt().then(({data})=>{
+                setRows(data.articles)
         })
     },[])
 
@@ -58,11 +40,14 @@ export default function ArticleList({rows,setRows}){
                 </TableHead>
                 <TableBody>
                   {rows.map((row) => (
+                    
                     <TableRow
-                      key={row.id}
+                      key={row.title}
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                       
                     >
+                      {console.log(row.title)}
+                      
                       <TableCell align="left" ><Link to={`/articles/${row.id}`}>{row.title}</Link></TableCell>
                       <TableCell align="right">{row.topic}</TableCell>
                       <TableCell align="right">{row.author}</TableCell>
