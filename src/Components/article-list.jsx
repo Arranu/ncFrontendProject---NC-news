@@ -5,26 +5,22 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
+import TableFooter from '@mui/material/TableFooter';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { fetchArt } from "./api";
 import { Link } from "react-router-dom";
-const columns = [
-    { id: 'title', label: 'Title', minWidth: 170 },
-    { id: 'topic', label: 'Topic', minWidth: 100 },
-    { id: 'author',label: 'Author',minWidth: 100 },
-    { id: 'body', label: 'Body', minWidth: 170, align: 'right',},
-    { id: 'created_at', label: 'Created at', minWidth: 170, align: 'right'},
-    { id: 'vote', label: 'Vote', minWidth: 170, align: 'right'}
-];
 
-export default function ArticleList({rows,setRows}){
 
+export default function ArticleList(){
+  const [rows, setRows] = useState([])
+  const [page,setPage] = useState(1)
+  const [limit,setLimit] = useState(10)
     useEffect(()=>{
         fetchArt().then(({data})=>{
                 setRows(data.articles)
         })
-    },[])
+    },[page,limit])
 
         return (
             
@@ -42,19 +38,23 @@ export default function ArticleList({rows,setRows}){
                   {rows.map((row) => (
                     
                     <TableRow
-                      key={row.title}
+                      key={row.article_id}
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                       
                     >
-                      {console.log(row.title)}
                       
-                      <TableCell align="left" ><Link to={`/articles/${row.id}`}>{row.title}</Link></TableCell>
+                      <TableCell align="left" ><Link to={`/articles/${row.article_id}`}>{row.title}</Link></TableCell>
                       <TableCell align="right">{row.topic}</TableCell>
                       <TableCell align="right">{row.author}</TableCell>
                       <TableCell align="right">{[new Date(row.created_at).toLocaleDateString() ," " + new Date(row.created_at).toLocaleTimeString()]}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
+                <TableFooter>
+                  <TableRow>
+
+                  </TableRow>
+                </TableFooter>
               </Table>
             </TableContainer>
           );

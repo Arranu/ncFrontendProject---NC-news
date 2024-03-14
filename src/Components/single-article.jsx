@@ -4,6 +4,7 @@ import { fetchSpecArt,fetchArtComs } from './api';
 import CommentList from './comment-list';
 import LikeButton from './like-button';
 import CommentBox from './new-comment-box';
+
 export default function SingleArticle(){
     const {article_id}=useParams()
     const [singleItem, setSingleItem]=useState([])
@@ -20,14 +21,16 @@ export default function SingleArticle(){
 
         return (
             <>
-                <div>
+                <article >
                     <h2>{singleItem.title}</h2>
                     <img src={singleItem.article_img_url}></img>
                     <h4>by {singleItem.author}</h4>
                     <p>{singleItem.body}</p>
                     <LikeButton votes={singleItem.votes} likeType={`articles`} id={singleItem.article_id} />
-                </div>
+                </article>
+                
                     <CommentBox commentList={commentList} setCommentList={setCommentList} article_id={article_id}/>
+                
                     <CommentList commentList={commentList} setCommentList={setCommentList}/>
             </>
         );
