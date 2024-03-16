@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchSpecArt,fetchArtComs } from './api';
-import CommentList from './comment-list';
-import LikeButton from './like-button';
-import CommentBox from './new-comment-box';
+import { fetchSpecArt,fetchArtComs } from '../Components/api';
+import CommentList from '../Components/comment-list';
+import LikeButton from '../Components/like-button';
+import CommentBox from '../Components/new-comment-box';
 
 export default function SingleArticle(){
     const {article_id}=useParams()

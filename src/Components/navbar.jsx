@@ -22,8 +22,9 @@ export default function Navbar(){
         <nav>
             <ul className="navbar">
                 <li id="navbar-links">
-                    <Link to="/">Home</Link>
-                    <Link id='user-link'to="/users">Users</Link>
+                    <Link className="navbar-button"to="/">Home</Link>
+                    <Link className="navbar-button"to="/users">Users</Link>
+                    <Link className="navbar-button"to="/topics">Topics</Link>
                 </li>
                 <CurrentUser/>
             </ul>

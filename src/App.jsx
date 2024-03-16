@@ -1,11 +1,12 @@
 import { useState,useContext } from 'react'
 import './App.css'
-import ArticleList from './Components/article-list'
+import ArticleList from './Pages/article-list'
 import { Route, Routes } from 'react-router-dom'
-import SingleArticle from './Components/single-article'
-import UserList from './Components/user-list'
+import SingleArticle from './Pages/single-article'
+import UserList from './Pages/user-list'
 import Navbar from './Components/navbar'
 import { UserContext } from './context/users'
+import TopicsList from './Pages/topics-list'
 function App() {
   const {user}=useContext(UserContext)
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/' element={<ArticleList />}/>
         <Route path='/articles/:article_id' element={<SingleArticle />} />
         <Route path='/users' element={<UserList/>}/>
+        <Route path='/topics' element={<TopicsList/>}/>
       </Routes>
     </div>
 

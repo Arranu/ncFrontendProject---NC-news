@@ -39,6 +39,7 @@ h1 {
   line-height: 1.1;
 }
 
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -120,9 +121,12 @@ button:focus-visible {
 }
 
 .navbar{
-  position: relative;
+  
   background-color: #C14953;
   height: 50px;
+}
+.navbar-button{
+  margin: 1cap;
 }
 #input-box{
   height: 75px;
@@ -156,11 +160,11 @@ float:right;
   margin-top: 1.5cap;
   
 }
-#user-link{
-  margin: 1cap;
-}
 #frontPageTable{
   background-color:#E0DDCF;
+}
+#topic-info{
+  display: flex;
 }
 @media (prefers-color-scheme: light) {
   :root {

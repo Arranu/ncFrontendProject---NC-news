@@ -1,3 +1,4 @@
+import { fetchArt, fetchTops } from "../Components/api";
 import { useEffect, useState } from "react"
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -6,25 +7,25 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableFooter from '@mui/material/TableFooter';
-import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { fetchArt } from "./api";
-import { Link } from "react-router-dom";
-
-
-export default function ArticleList(){
-  const [rows, setRows] = useState([])
-  const [page,setPage] = useState(1)
-  const [limit,setLimit] = useState(10)
-    useEffect(()=>{
-        fetchArt().then(({data})=>{
-                setRows(data.articles.paginated)
+export default function TopicsList(){
+    const [topicsList,setTopicsList]=useState([])
+    const [articles,setArticles]=useState([])
+    useEffect(()=>{fetchTops().then(({data})=>{
+        setTopicsList(data.topics)
+    })},[])
+    const topics = topicsList.map((topic,index)=>{
+        fetchArt(1,10,topic).then(({data})=>{
+            setArticles(data.paginated)
         })
-    },[page,limit])
-
-        return (
-            
-            <TableContainer id="frontPageTable"component={Paper}>
+        console.log(articles)
+        return(
+            <section className="topic-list" key={index}>
+                <li id="topic-info">
+                    <h3>{topic.slug}</h3>
+                    <h5>{topic.description}</h5>
+                </li>
+                    <TableContainer id="frontPageTable"component={Paper}>
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
@@ -35,7 +36,7 @@ export default function ArticleList(){
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {rows.map((row) => (
+                  {articles.map((row) => (
                     
                     <TableRow
                       key={row.article_id}
@@ -57,6 +58,12 @@ export default function ArticleList(){
                 </TableFooter>
               </Table>
             </TableContainer>
-          );
+            </section>   
+        )
 
+        
+    })
+    return(
+        <ul>{topics}</ul>
+    )
 }
