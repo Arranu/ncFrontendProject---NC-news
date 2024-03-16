@@ -15,9 +15,11 @@ export default function SingleArticle(){
             })
         },[article_id])
         useEffect(()=>{fetchArtComs(article_id).then(({data})=>{
-        setCommentList(data.comments)
+        setCommentList(data.comments.paginated)
+        
+        console.log("here")
             })
-        },[article_id,commentList.length])
+        },[article_id])
 
         return (
             <>
@@ -29,9 +31,9 @@ export default function SingleArticle(){
                     <LikeButton votes={singleItem.votes} likeType={`articles`} id={singleItem.article_id} />
                 </article>
                 
-                    <CommentBox commentList={commentList} setCommentList={setCommentList} article_id={article_id}/>
+                    <CommentBox setCommentList={setCommentList} article_id={article_id} />
                 
-                    <CommentList commentList={commentList} setCommentList={setCommentList}/>
+                    <CommentList commentList={commentList} setCommentList={setCommentList} />
             </>
         );
 }

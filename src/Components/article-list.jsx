@@ -18,7 +18,7 @@ export default function ArticleList(){
   const [limit,setLimit] = useState(10)
     useEffect(()=>{
         fetchArt().then(({data})=>{
-                setRows(data.articles)
+                setRows(data.articles.paginated)
         })
     },[page,limit])
 

@@ -2,7 +2,7 @@ import { useState,useContext } from "react";
 import { postCom } from "./api";
 import { UserContext } from "../context/users";
 
-export default function CommentBox({commentList, setCommentList,article_id}){
+export default function CommentBox({setCommentList,article_id}){
     const {user}=useContext(UserContext)
     return(
         <div className="comment-container">
@@ -16,9 +16,11 @@ export default function CommentBox({commentList, setCommentList,article_id}){
                 if(newbody.value)
                 {postCom(article_id,user.username,newbody.value).then(({data})=>{
                     const returnedData = data.newPost
-                    setCommentList((comments)=>[
+                    setCommentList((comments)=>[   
                         returnedData, ...comments
                     ])
+                    
+                    
                     
                 })}
                 
