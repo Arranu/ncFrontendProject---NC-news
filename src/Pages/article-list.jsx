@@ -18,14 +18,14 @@ export default function ArticleList(){
   const [limit,setLimit] = useState(10)
     useEffect(()=>{
         fetchArt().then(({data})=>{
-                setRows(data.articles.paginated)
+            setRows(data.articles.paginated)
         })
     },[page,limit])
 
         return (
             
             <TableContainer id="frontPageTable"component={Paper}>
-              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <Table sx={{ minWidth: 600 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
                     <TableCell align="left">Title</TableCell>
@@ -40,7 +40,6 @@ export default function ArticleList(){
                     <TableRow
                       key={row.article_id}
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                      
                     >
                       
                       <TableCell align="left" ><Link to={`/articles/${row.article_id}`}>{row.title}</Link></TableCell>

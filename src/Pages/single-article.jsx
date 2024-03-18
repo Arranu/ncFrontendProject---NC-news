@@ -16,8 +16,6 @@ export default function SingleArticle(){
         },[article_id])
         useEffect(()=>{fetchArtComs(article_id).then(({data})=>{
         setCommentList(data.comments.paginated)
-        
-        console.log("here")
             })
         },[article_id])
 
@@ -30,10 +28,12 @@ export default function SingleArticle(){
                     <p>{singleItem.body}</p>
                     <LikeButton votes={singleItem.votes} likeType={`articles`} id={singleItem.article_id} />
                 </article>
-                
+                <section>
                     <CommentBox setCommentList={setCommentList} article_id={article_id} />
-                
+                </section>
+                <section>
                     <CommentList commentList={commentList} setCommentList={setCommentList} />
+                </section>
             </>
         );
 }
