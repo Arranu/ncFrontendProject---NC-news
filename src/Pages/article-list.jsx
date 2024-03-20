@@ -11,19 +11,27 @@ import TableRow from '@mui/material/TableRow';
 import { fetchArt } from "../Components/api";
 import { Link } from "react-router-dom";
 
-
 export default function ArticleList(){
   const [rows, setRows] = useState([])
-  const [page,setPage] = useState(1)
+  const [page,setPage] = useState(0)
   const [limit,setLimit] = useState(10)
+  const [count,setCount] = useState(0)
     useEffect(()=>{
-        fetchArt().then(({data})=>{
+        fetchArt(page+1,limit).then(({data})=>{
             setRows(data.articles.paginated)
+            setCount(data.articles.total)
         })
     },[page,limit])
 
+    function handleChangePage(event, newpage) { 
+      setPage(newpage); 
+    } 
+
+    function handleChangeRowsPerPage(event) { 
+      setLimit(parseInt(event.target.value))
+    } 
         return (
-            
+            <>
             <TableContainer id="frontPageTable"component={Paper}>
               <Table sx={{ minWidth: 600 }} aria-label="simple table">
                 <TableHead>
@@ -51,11 +59,19 @@ export default function ArticleList(){
                 </TableBody>
                 <TableFooter>
                   <TableRow>
-
+                    <TablePagination
+                        rowsPerPageOptions={[5, 10, 25]}
+                        count={count}
+                        rowsPerPage={limit}
+                        page={page}
+                        onPageChange={handleChangePage} 
+                        onRowsPerPageChange={handleChangeRowsPerPage} 
+                        />
                   </TableRow>
                 </TableFooter>
               </Table>
             </TableContainer>
+            </>
           );
 
 }

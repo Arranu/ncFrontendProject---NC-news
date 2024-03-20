@@ -14,14 +14,23 @@ import { Link } from "react-router-dom";
 export default function SingleTopic(){
     const {topic}=useParams()
     const [rows, setRows] = useState([])
-    const [page,setPage] = useState(1)
+    const [page,setPage] = useState(0)
     const [limit,setLimit] = useState(10)
+    const [count,setCount] = useState(0)
       useEffect(()=>{
-          fetchArt(page,limit,topic).then(({data})=>{
-              setRows(data.articles.paginated)
+          fetchArt(page+1,limit,topic).then(({data})=>{
+            setRows(data.articles.paginated)
+            setCount(data.articles.total)
           })
       },[page,limit])
+
+      function handleChangePage(event, newpage) { 
+        setPage(newpage); 
+      } 
   
+      function handleChangeRowsPerPage(event) { 
+        setLimit(parseInt(event.target.value))
+      } 
           return (
             <>
             <h2>{topic}</h2>
@@ -52,7 +61,14 @@ export default function SingleTopic(){
                   </TableBody>
                   <TableFooter>
                     <TableRow>
-  
+                    <TablePagination
+                        rowsPerPageOptions={[5, 10, 25]}
+                        count={count}
+                        rowsPerPage={limit}
+                        page={page}
+                        onPageChange={handleChangePage} 
+                        onRowsPerPageChange={handleChangeRowsPerPage} 
+                        />
                     </TableRow>
                   </TableFooter>
                 </Table>
