@@ -24,8 +24,8 @@ export function postCom(id,user,post){
         userName:user,body:post
     })
 }
-export function editVote(id,location){
-    return baseLink.patch(`/${location}/${id}`, {inc_votes:1})
+export function editVote(id,location,like){
+    return baseLink.patch(`/${location}/${id}`, {inc_votes:like})
 }
 export function delCom(id){
     return baseLink.delete(`/comments/${id}`)

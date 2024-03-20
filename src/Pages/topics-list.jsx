@@ -15,7 +15,7 @@ export default function TopicsList(){
             <section className="topic-list" key={index}>
                 <li id="topic-info">
                     <h3><Link to={`/topics/${topic.slug}`}>{topic.slug}</Link></h3>
-                    <h5>{topic.description}</h5>
+                    <h3>{`- ${topic.description}`}</h3>
                 </li>
             </section>
         )

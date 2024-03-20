@@ -17,6 +17,7 @@ export default function SingleTopic(){
     const [page,setPage] = useState(0)
     const [limit,setLimit] = useState(10)
     const [count,setCount] = useState(0)
+    const displayTopic = topic.slice(0,1).toUpperCase() + topic.slice(1)
       useEffect(()=>{
           fetchArt(page+1,limit,topic).then(({data})=>{
             setRows(data.articles.paginated)
@@ -33,9 +34,9 @@ export default function SingleTopic(){
       } 
           return (
             <>
-            <h2>{topic}</h2>
+            <h2>{displayTopic}</h2>
               <TableContainer id="frontPageTable"component={Paper}>
-                <Table sx={{ minWidth: 600 }} aria-label="simple table">
+                <Table sx={{ minWidth: 850 }} aria-label="simple table">
                   <TableHead>
                     <TableRow>
                       <TableCell align="left">Title</TableCell>
@@ -51,7 +52,6 @@ export default function SingleTopic(){
                         key={row.article_id}
                         sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                       >
-                        
                         <TableCell align="left" ><Link to={`/articles/${row.article_id}`}>{row.title}</Link></TableCell>
                         <TableCell align="right">{row.topic}</TableCell>
                         <TableCell align="right">{row.author}</TableCell>

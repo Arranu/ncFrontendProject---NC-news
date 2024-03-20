@@ -10,7 +10,6 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { fetchArt } from "../Components/api";
 import { Link } from "react-router-dom";
-
 export default function ArticleList(){
   const [rows, setRows] = useState([])
   const [page,setPage] = useState(0)
@@ -33,7 +32,7 @@ export default function ArticleList(){
         return (
             <>
             <TableContainer id="frontPageTable"component={Paper}>
-              <Table sx={{ minWidth: 600 }} aria-label="simple table">
+              <Table sx={{ minWidth: 850 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
                     <TableCell align="left">Title</TableCell>
