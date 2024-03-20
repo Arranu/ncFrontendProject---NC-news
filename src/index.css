@@ -66,17 +66,24 @@ button:focus-visible {
   align-items: last baseline;
   margin-top: -200px;
 }
-
+.comment-list,
 .comment-flexbox{
   display:flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 
 }
 .comment-text{
   margin: 12px 0;
   font-size: 1.15rem;
   font-weight:600 ;
+}
+#like-bar{
+  background: #1a1a1a;
+  color: #f9f9f9;
+  display: flex;
+  border-radius: 1cap;
+  margin-bottom: 1cap;
 }
 .like-button{
   background-color: rgb(0, 0, 0);
@@ -86,6 +93,7 @@ button:focus-visible {
   border-style: none;
   cursor: pointer;
 }
+        
 .delete-button{
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
@@ -121,7 +129,7 @@ button:focus-visible {
 }
 
 .navbar{
-  
+  display:block;
   background-color: #C14953;
   height: 50px;
 }
@@ -140,7 +148,7 @@ button:focus-visible {
 }
 
 #profile-image{
-  height:auto;
+  height:50px;
   width:80px;
   background-color: #ffffff;
   border: #C14953;
@@ -149,15 +157,16 @@ button:focus-visible {
 #profile-text{
   margin-right: 1cap;
   
+  
 }
 #logged-in{
-  display: flex;
-height: 50px;
+display: flex;
 float:right;
 }
 #navbar-links{
   float: left;
-  margin-top: 1.5cap;
+  margin-top: 1cap;
+  align-items: flex-start;
   
 }
 #frontPageTable{
