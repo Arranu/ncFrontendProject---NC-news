@@ -11,13 +11,14 @@ import TableRow from '@mui/material/TableRow';
 import { fetchArt } from "../Components/api";
 import { Link } from "react-router-dom";
 
-export default function ArticleTable(prop){
+export default function ArticleTable(topic){
+
 const [rows, setRows] = useState([])
 const [page,setPage] = useState(0)
 const [limit,setLimit] = useState(10)
 const [count,setCount] = useState(0)
     useEffect(()=>{
-        fetchArt(page+1,limit,prop.topic).then(({data})=>{
+        fetchArt(page+1,limit,topic.topic).then(({data})=>{
             setRows(data.articles.paginated)
             setCount(data.articles.total)
         })
