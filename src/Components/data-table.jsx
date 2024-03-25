@@ -34,7 +34,7 @@ const [count,setCount] = useState(0)
         return (
             <>
             <TableContainer id="frontPageTable"component={Paper}>
-              <Table sx={{ minWidth: 850 }} aria-label="simple table">
+              <Table sx={{ minWidth: 600 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
                     <TableCell align="left">Title</TableCell>
@@ -52,7 +52,7 @@ const [count,setCount] = useState(0)
                     >
                       
                       <TableCell align="left" ><Link to={`/articles/${row.article_id}`}>{row.title}</Link></TableCell>
-                      <TableCell align="right">{row.topic}</TableCell>
+                      {topic.topic?"":<TableCell align="right">{row.topic}</TableCell>}
                       <TableCell align="right">{row.author}</TableCell>
                       <TableCell align="right">{[new Date(row.created_at).toLocaleDateString() ," " + new Date(row.created_at).toLocaleTimeString()]}</TableCell>
                     </TableRow>
