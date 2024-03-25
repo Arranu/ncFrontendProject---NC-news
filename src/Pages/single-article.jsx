@@ -12,12 +12,11 @@ export default function SingleArticle(){
         useEffect(()=>{
             fetchSpecArt(article_id).then(({data})=>{
                 setSingleItem(data.article)
+            fetchArtComs(article_id).then(({data})=>{
+                setCommentList(data.comments.paginated)
             })
         },[article_id])
-        useEffect(()=>{fetchArtComs(article_id).then(({data})=>{
-        setCommentList(data.comments.paginated)
-            })
-        },[article_id])
+    })
 
         return (
             <>
