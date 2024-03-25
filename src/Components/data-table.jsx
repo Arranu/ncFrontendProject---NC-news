@@ -38,7 +38,7 @@ const [count,setCount] = useState(0)
                 <TableHead>
                   <TableRow>
                     <TableCell align="left">Title</TableCell>
-                    <TableCell align="right">Topic&nbsp;</TableCell>
+                    {topic.topic?"":<TableCell align="right">Topic&nbsp;</TableCell>}
                     <TableCell align="right">Author&nbsp;</TableCell>
                     <TableCell align="right">Created&nbsp;</TableCell>
                   </TableRow>
