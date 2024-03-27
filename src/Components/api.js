@@ -1,8 +1,15 @@
 import axios from "axios";
 const baseLink = axios.create({baseURL:"https://nc-news-au.onrender.com/api"})
 
-export function fetchArt(page,limit,topic){
-    return baseLink.get("/articles", {params:{page:page,limit:limit,topic:topic}})
+export function fetchArt(page,limit,topic,sort_by,order){
+    return baseLink.get("/articles", 
+    {params:{
+        page:page,
+        limit:limit,
+        topic:topic,
+        sort_by:sort_by,
+        order:order
+    }})
 }
 export function fetchTops(){
     return baseLink.get("/topics")

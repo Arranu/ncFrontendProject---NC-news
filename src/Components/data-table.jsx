@@ -12,20 +12,22 @@ import { fetchArt } from "../Components/api";
 import { Link } from "react-router-dom";
 import Loading from "./loading";
 export default function ArticleTable(topic){
-
 const [rows, setRows] = useState([])
 const [page,setPage] = useState(0)
 const [limit,setLimit] = useState(10)
 const [count,setCount] = useState(0)
+const [sort_by,setSort_By]=useState('created_at')
+const [order,setOrder]=useState('DESC')
 const [loaded,setLoaded] = useState(false)
     useEffect(()=>{
-        fetchArt(page+1,limit,topic.topic).then(({data})=>{
+        fetchArt(page+1,limit,topic.topic,sort_by,order).then(({data})=>{
             setRows(data.articles.paginated)
             setCount(data.articles.total)
             setLoaded(true)
         })
-    },[page,limit])
+    },[page,limit,sort_by,order])
 
+    //Pagination Handlers
     function handleChangePage(event, newpage) { 
       
       setPage(newpage); 
@@ -34,26 +36,28 @@ const [loaded,setLoaded] = useState(false)
     function handleChangeRowsPerPage(event) { 
       setLimit(parseInt(event.target.value))
     } 
+    //Sorting Handlers
+    function handleSort(event){
+      setSort_By(event.target.innerText.replace(" ","_").toLowerCase()) 
+    }
         return (
             <>
             <TableContainer id="frontPageTable"component={Paper}>
               <Table sx={{ minWidth: 600 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell align="left">Title</TableCell>
-                    {topic.topic?"":<TableCell align="right">Topic&nbsp;</TableCell>}
-                    <TableCell align="right">Author&nbsp;</TableCell>
-                    <TableCell align="right">Created&nbsp;</TableCell>
+                    <TableCell key={"title"}align="left"  onClick={handleSort}>Title</TableCell>
+                    {topic.topic?"":<TableCell align="right" onClick={handleSort}>Topic</TableCell>}
+                    <TableCell align="right" onClick={handleSort}>Author</TableCell>
+                    <TableCell align="right" onClick={handleSort}>Created at</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {rows.map((row) => (
-                    
                     <TableRow
                       key={row.article_id}
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
-                      
                       <TableCell align="left" ><Link to={`/articles/${row.article_id}`}>{row.title}</Link></TableCell>
                       {topic.topic?"":<TableCell align="right">{row.topic}</TableCell>}
                       <TableCell align="right">{row.author}</TableCell>
