@@ -14,7 +14,7 @@ export default function Navbar(){
         return(
             <div id="logged-in">
                 <h5 id='profile-text'>User: {currentUser.username}</h5>
-                <img id='profile-image' src={currentUser.avatar_url}/>
+                <img id='profile-image' src={currentUser.avatar_url} alt="" />
             </div>
         )
     }

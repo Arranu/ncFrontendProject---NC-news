@@ -13,11 +13,11 @@ export default function TopicsList(){
         return(
           
             <section className="topic-list" key={index}> 
-                <h2 id="topic-info">{`${displayTopic} - ${topic.description}`}</h2>
+                <h3 id="topic-info">{`${displayTopic} - ${topic.description}`}</h3>
                 <ArticleTable topic={topic.slug}/>
             </section>
         )
-      }
+      }     
     )
     return(
       <ul>{topics}</ul>

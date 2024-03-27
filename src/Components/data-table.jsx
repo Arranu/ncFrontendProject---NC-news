@@ -10,21 +10,24 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { fetchArt } from "../Components/api";
 import { Link } from "react-router-dom";
-
+import Loading from "./loading";
 export default function ArticleTable(topic){
 
 const [rows, setRows] = useState([])
 const [page,setPage] = useState(0)
 const [limit,setLimit] = useState(10)
 const [count,setCount] = useState(0)
+const [loaded,setLoaded] = useState(false)
     useEffect(()=>{
         fetchArt(page+1,limit,topic.topic).then(({data})=>{
             setRows(data.articles.paginated)
             setCount(data.articles.total)
+            setLoaded(true)
         })
     },[page,limit])
 
     function handleChangePage(event, newpage) { 
+      
       setPage(newpage); 
     } 
 
@@ -72,7 +75,9 @@ const [count,setCount] = useState(0)
                 </TableFooter>
               </Table>
             </TableContainer>
+            <Loading loaded={loaded}/>
             </>
+            
           );
 
 }
